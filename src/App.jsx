@@ -17,7 +17,7 @@ function App() {
                           <GiHamburgerMenu />
                         </label>
                        
-                        <p className="font-bold ms-2 hidden md:block">Home</p>
+                        <p className="font-bold ms-2 hidden md:block">Hometest</p>
                     </div>
                 </div>
               </div>
