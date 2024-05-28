@@ -1,10 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import App from './App.jsx';
+import "./index.css"
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+  },
+// ส่วนของ path และ element เราสามารถเพิ่มมาอีกได้เรื่อย ๆ กรณีที่เรามีหลายเพจ
+]);
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
