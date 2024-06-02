@@ -1,12 +1,11 @@
-import { FaHome } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { FaCalendarDays } from "react-icons/fa6";
-import { RiTodoFill } from "react-icons/ri";
 import Calendar from 'react-calendar'
 import 'react-calendar/dist/Calendar.css';
-import logo from './assets/logo.svg'
+import Sidemenu from "./component/Sidemenu";
 import { MdEvent } from "react-icons/md";
 import { FaTasks } from "react-icons/fa";
+import logo from './assets/logo.svg'
+
 function App() {
 
   return (
@@ -25,11 +24,11 @@ function App() {
                       <div className="group-calendar md:w-[50%] ">
                         <a className="btn btn-sm bg-white hover:bg-white "><MdEvent /> Add event</a>
                         <div className="bg-white w-100 mt-5 shadow  rounded-lg p-10">
-                          <Calendar />
+                          <Calendar/>
                         </div>
                         <div className="flex flex-col md:flex-row  gap-5">
                             <div className="bg-white w-full p-5 my-5">
-                              test
+                              
                             </div>
                             <div className="bg-white w-full p-5 my-5">
                               <p>test</p>
@@ -80,24 +79,7 @@ function App() {
                 </div>
               </div>
           </div> 
-          <div className="drawer-side shadow-md">
-            <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label> 
-            <ul className="menu p-4 w-80 min-h-full bg-white text-base-content">
-                <img src={logo} alt="Website Logo" />
-                <div className="ms-5 flex my-3 w-[250px] text-lg items-center bg-white rounded-md p-2  shadow-md">
-                  <FaHome className="text-red-500/75"/>
-                  <li className="font-semibold ms-2">Overview</li>
-                </div>
-                <div className="ms-5 flex my-3 w-[250px] text-lg items-center text-slate-800/75 group  bg-white duration-300 cursor-pointer rounded-md p-2  hover:shadow-md">
-                  <FaCalendarDays className="text-slate-800/75 group-hover:text-red-500/75 duration-300"/>
-                  <li className="font-semibold ms-2 group-hover:text-black duration-300">Calendar</li>
-                </div>
-                <div className="ms-5 flex my-3 w-[250px] text-lg items-center text-slate-800/75 group  bg-white duration-300 cursor-pointer rounded-md p-2  hover:shadow-md">
-                  <RiTodoFill className="text-slate-800/75 group-hover:text-red-500/75 duration-300"/>
-                  <li className="font-semibold ms-2 group-hover:text-black duration-300">To-do</li>
-                </div>
-            </ul>
-          </div>
+          <Sidemenu/>
       </div>
     </section>
     </>
