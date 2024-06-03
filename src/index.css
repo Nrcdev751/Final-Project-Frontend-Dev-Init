@@ -128,3 +128,41 @@
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
   }
+
+  /* Todo Checkbox */
+  input[type="checkbox"] {
+    display: none;
+  }
+  /* hide checkbox by default */
+
+  .todo-checkbox{
+    display: flex;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .todo-checkbox::after{
+    content: '';
+    position: absolute;
+
+    width: 6px;
+    height: 15px;
+    border: solid #FA9595;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: all 0.2s;
+  }
+
+  input[type="checkbox"]:checked + .todo-checkbox::after {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    border-radius: 50px;
+    background-color: #FA9595;
+  }
