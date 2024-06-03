@@ -23,10 +23,25 @@ function ShowTodo(){
                                     <div className="col-span-4 hidden lg:block"></div>
                                     <div className="col-span-12 lg:col-span-4 flex flex-col justify-center">
                                         <img src={logo} className=" filter brightness-0 invert  scale-75" alt="" />
+                                        <button className="w-[120px] btn btn-sm bg-white hover:bg-white my-2" onClick={()=>document.getElementById('my_modal_2').showModal()}>Add Tasks</button>
+                                        <dialog id="my_modal_2" className="modal">
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg my-2">Add tasks</h3>
+                                                <input type="text" placeholder="Type here" className="input input-bordered w-full " />
+                                                <div className="group-button flex justify-end my-2 ">
+                                                    <button className="btn btn-sm bg-white hover:bg-white outline outline-1 outline-slate-200 text-red-400 me-2">Cancel</button>
+                                                    <button className="btn btn-sm bg-red-400/75 hover:bg-red-400 text-white ">Confirm</button>
+                                                </div>
+                                            </div>
+                                            <form method="dialog" className="modal-backdrop">
+                                                <button>close</button>
+                                            </form>
+                                        </dialog>
                                         <label className="input input-bordered flex items-center gap-2">
-                                             <input type="text" className="grow" placeholder="ค้นหาที่นี่" />
+                                             <input type="text" className="grow" placeholder="Search To-do" />
                                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
                                         </label>
+                                        
                                         <div className="bg-white rounded-md p-5 my-2">
                                             <div className="tasks-info flex items-center justify-between">
                                                 <div className="tasks-name flex items-center">
