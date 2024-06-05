@@ -20,7 +20,6 @@ function ShowCalendar(){
                                 <div className="bg-white w-100 mt-5 shadow  rounded-lg p-10">
                                     <Calendar/>
                                 </div>
-                            
                         </div>
                     </div>
                 </div> 
