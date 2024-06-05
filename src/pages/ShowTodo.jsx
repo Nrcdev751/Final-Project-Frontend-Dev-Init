@@ -2,72 +2,68 @@ import Sidemenu from "../component/Sidemenu.jsx";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdEvent } from "react-icons/md";
 import Calendar from 'react-calendar'
-import { FaTrashAlt } from "react-icons/fa";
-import { FaEdit } from "react-icons/fa";
+
 import 'react-calendar/dist/Calendar.css';
 import logo from '../assets/logo.svg'
+import React, { useState, useEffect } from 'react';
+import TodoList from "../component/Todo/Todolists.jsx";
+import AddTodo from "../component/Todo/Addtodo.jsx";
 
 function ShowTodo(){
+    const [todos, setTodos] = useState([]);
+
+        // Load todos from localStorage on component mount
+        useEffect(() => {
+            const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+            setTodos(storedTodos);
+        }, []);
+
+        // Save todos to localStorage when todos state changes
+        useEffect(() => {
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }, [todos]);
+
+        const addTodo = (todo) => {
+            setTodos([...todos, todo]);
+        };
+
+        const removeTodo = (index) => {
+            const newTodos = todos.filter((_, i) => i !== index);
+            setTodos(newTodos);
+        };
     return(
         <>
             <section className="content">
-            <div className="drawer lg:drawer-open ">
-                <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content bg-red-400/75">
-                    <div className="main-menu">
-                        <div className="max-w-screen p-10">
-                                <label htmlFor="my-drawer-2" className="drawer-button me-5  lg:hidden">
-                                <GiHamburgerMenu  className="text-white text-lg"/>
-                                </label>
-                                <div className="grid grid-cols-12 justify-center mt-5 rounded-lg p-10">
-                                    <div className="col-span-4 hidden lg:block"></div>
-                                    <div className="col-span-12 lg:col-span-4 flex flex-col justify-center">
-                                        <img src={logo} className=" filter brightness-0 invert  scale-75" alt="" />
-                                        <button className="w-[120px] btn btn-sm bg-white hover:bg-white my-2" onClick={()=>document.getElementById('my_modal_2').showModal()}>Add Tasks</button>
-                                        <dialog id="my_modal_2" className="modal">
-                                            <div className="modal-box">
-                                                <h3 className="font-bold text-lg my-2">Add tasks</h3>
-                                                <input type="text" placeholder="Type here" className="input input-bordered w-full " />
-                                                <div className="group-button flex justify-end my-2 ">
-                                                    <button className="btn btn-sm bg-white hover:bg-white outline outline-1 outline-slate-200 text-red-400 me-2">Cancel</button>
-                                                    <button className="btn btn-sm bg-red-400/75 hover:bg-red-400 text-white ">Confirm</button>
-                                                </div>
-                                            </div>
-                                            <form method="dialog" className="modal-backdrop">
-                                                <button>close</button>
-                                            </form>
-                                        </dialog>
-                                        <label className="input input-bordered flex items-center gap-2">
-                                             <input type="text" className="grow" placeholder="Search To-do" />
-                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+                    <div className="drawer lg:drawer-open ">
+                        <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+                        <div className="drawer-content bg-red-400/75">
+                            <div className="main-menu">
+                                <div className="max-w-screen p-10">
+                                        <label htmlFor="my-drawer-2" className="drawer-button me-5  lg:hidden">
+                                        <GiHamburgerMenu  className="text-white text-lg"/>
                                         </label>
-                                        
-                                        <div className="bg-white rounded-md p-5 my-2">
-                                            <div className="tasks-info flex items-center justify-between">
-                                                <div className="tasks-name flex items-center">
-                                                        <label>
-                                                            <input type="checkbox" />
-                                                            <span class="todo-checkbox"></span>
-                                                        </label>
-                                                    <p className="text-lg font-semibold ms-2">กินข้าว</p>
-                                                </div>
-                                                <div className="tasks-item ">
-                                                    <button className="btn btn-sm bg-white hover:bg-white outline outline-1 outline-slate-200 text-red-400 mx-2"><FaEdit /></button>
-                                                    <button className="btn btn-sm bg-red-400/75 hover:bg-red-400 text-white"><FaTrashAlt /></button>
-                                                </div>
+                                        <div className="grid grid-cols-12 justify-center mt-5 rounded-lg p-10">
+                                            <div className="col-span-4 hidden lg:block"></div>
+                                            <div className="col-span-12 lg:col-span-4 flex flex-col justify-center">
+                                                <img src={logo} className=" filter brightness-0 invert  scale-75" alt="" />
+                                                
+                                                <label className="input input-bordered flex items-center gap-2">
+                                                    <input type="text" className="grow" placeholder="Search To-do" />
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path fillRule="evenodd" d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z" clipRule="evenodd" /></svg>
+                                                </label>
+                                                <AddTodo addTodo={addTodo} />
+                                                <TodoList todos={todos} removeTodo={removeTodo} />
+                                                <div className="col-span-4 hidden lg:block"></div>
                                             </div>
+                                            
                                         </div>
-                                        <div className="col-span-4 hidden lg:block"></div>
-                                    </div>
                                     
                                 </div>
-                            
-                        </div>
+                            </div>
+                        </div> 
+                        <Sidemenu/>
                     </div>
-                </div> 
-                <Sidemenu/>
-            </div>
-    </section>
+            </section>
         </>
     )
 }
