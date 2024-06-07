@@ -165,3 +165,11 @@
     opacity: 1;
       
   }
+
+  .swal2-cancel{
+    color: #000 !important;
+  }
+  .swal2-cancel button{
+    border: 1px solid #ccc;
+    
+  }
