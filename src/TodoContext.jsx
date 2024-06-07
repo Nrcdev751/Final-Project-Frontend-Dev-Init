@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import Swal from 'sweetalert2';
 
 export const TodoContext = createContext();
 
@@ -27,8 +28,27 @@ export const TodoProvider = ({ children }) => {
   };
 
   const removeTodo = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
+    Swal.fire({
+      title: "Delete task?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FA9595",
+      cancelButtonColor: "#fff",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const newTodos = todos.filter((todo) => todo.id !== id);
+        setTodos(newTodos);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your task has been deleted.",
+          icon: "success"
+        });
+      }
+    });
+   
+
   };
 
   return (
