@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --fc-event-bg-color:#e77575;
+  --fc-event-border-color:#ec7676;
+}
+
 .react-calendar {
     width: 100%;
     max-width: 100%;
@@ -173,3 +178,40 @@
     border: 1px solid #ccc;
     
   }
+
+  /* full calendar */
+
+
+  .fc .fc-button-primary {
+    background-color: #FA9595;
+    border-color: #fff;
+    color: #fff;
+  }
+  .fc .fc-button-primary:hover {
+    background-color: #f07d7d;
+    border-color: #fff;
+    color: #fff;
+  }
+  .fc .fc-button-primary:active {
+    background-color: #da6f6f;
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .fc .fc-button-primary:disabled {
+    background-color: #FA9595;
+    border-color: #fff;
+    color: #fff;
+}
+
+/* Nav active */
+nav a.active{
+  padding: 0.5rem; 
+  border-radius: 0.375rem; 
+  transition-duration: 300ms; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); 
+}
+nav a.active svg{
+  color: #ef4444;
+  opacity: 75%;
+}

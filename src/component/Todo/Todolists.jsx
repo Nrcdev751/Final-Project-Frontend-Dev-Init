@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
-const TodoList = ({ todos, removeTodo, setEditingTodo }) => {
+const TodoList = ({ todos, removeTodo, setEditingTodo, isChecked, onCheckboxChange }) => {
+ 
   return (
     <>
       {todos.map((todo) => (
@@ -9,7 +10,7 @@ const TodoList = ({ todos, removeTodo, setEditingTodo }) => {
           <div className="tasks-info flex items-center justify-between">
             <div className="tasks-name flex items-center">
               <label>
-                <input type="checkbox" />
+                <input type="checkbox"  />
                 <span className="todo-checkbox"></span>
               </label>
               <p className="text-lg font-semibold ms-2">{todo.text}</p>

@@ -15,6 +15,8 @@ export const TodoProvider = ({ children }) => {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
+
+
   const addTodo = (todo) => {
     const newTodos = [...todos, todo];
     setTodos(newTodos);
