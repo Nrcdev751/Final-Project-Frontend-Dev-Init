@@ -3,7 +3,7 @@ import logo from '../assets/logo.svg';
 import { FaHome } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { RiTodoFill } from "react-icons/ri";
-
+import { FaCalendarCheck } from "react-icons/fa";
 
 
 function Sidemenu(){
@@ -23,8 +23,12 @@ function Sidemenu(){
                             <p className="font-semibold ms-2">Calendar</p>
                         </NavLink>
                         <NavLink to="/todo" className="nav-link ms-5 flex my-3 w-[250px] text-lg items-center text-slate-800/75 group  bg-white duration-300 cursor-pointer rounded-md p-2  hover:shadow-md">
-                                <RiTodoFill className="text-slate-800/75 group-hover:text-red-500/75 duration-300"/>
+                                <FaCalendarCheck className="text-slate-800/75 group-hover:text-red-500/75 duration-300"/>
                                 <p className="font-semibold ms-2">To-do</p>
+                        </NavLink>
+                        <NavLink to="/note" className="nav-link ms-5 flex my-3 w-[250px] text-lg items-center text-slate-800/75 group  bg-white duration-300 cursor-pointer rounded-md p-2  hover:shadow-md">
+                                <RiTodoFill className="text-slate-800/75 group-hover:text-red-500/75 duration-300"/>
+                                <p className="font-semibold ms-2">Note</p>
                         </NavLink>
                     </nav>
      

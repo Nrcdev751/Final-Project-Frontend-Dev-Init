@@ -58,8 +58,6 @@ function ShowCalendar() {
                                     <GiHamburgerMenu className="text-white text-lg" />
                                 </label>
                                 <div className="mb-4">
-                                    
-                                   
                                     <button 
                                          onClick={() => document.getElementById('my_modal_2').showModal()}
                                         className="btn btn-sm bg-white hover:bg-white">
@@ -76,12 +74,14 @@ function ShowCalendar() {
                                             onChange={handleEventNameChange} 
                                             placeholder="Event Name" 
                                             className="input w-full input-bordered mr-2" 
+                                            required
                                         />
                                         <p className="font-bold my-3">Event date</p>
                                          <input 
                                         type="date" 
                                         value={eventDate} 
                                         onChange={handleEventDateChange} 
+                                        required
                                         className="input w-full input-bordered mr-2 " 
                                     />
                                         </div>
