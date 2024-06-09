@@ -1,8 +1,19 @@
-# React + Vite
+# TodoThiz
+เว็บแอพพลิเคชั่นสำหรับจัดการข้อมูลกิจวัตรประจำวันต่าง ๆ 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# ฟังก์ชั่นเบื้องต้น
 
-Currently, two official plugins are available:
+- สามารถเพิ่ม ลบ แก้ไข ค้นหา Todolist ได้
+- สามารถเพิ่ม Event บนปฏิทินได้
+- สามารถเพิ่มและข้อมูลโน๊ตส่วนตัวได้
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# ฟังก์ชั่นเพิ่มเติม
+
+- ระบบ Complete Incomplete Checklist
+- การเปลี่ยนสีธีม
+- การสลับตำแหน่งของเมนูต่าง ๆ 
+
+# ลิงค์เพิ่มเติม
+
+- [Figma](https://www.figma.com/design/haLglsLmE8Y7G0iOqhppmI/Todothiz?node-id=0-1&t=k4UU2eJHxMTUQr9u-1)
+- [Website](https://final-project-frontend-dev-init.vercel.app/)

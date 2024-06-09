@@ -5,7 +5,6 @@ import { FaTasks } from "react-icons/fa";
 import { MdDone } from "react-icons/md";
 import { MdOutlinePending } from "react-icons/md";
 import { RiTodoFill } from "react-icons/ri";
-import { MdOutlineCancel } from "react-icons/md";
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 import FullCalendar from '@fullcalendar/react';
